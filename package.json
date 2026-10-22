@@ -1,0 +1,45 @@
+{
+  "name": "voidrift-desktop",
+  "version": "0.1.0",
+  "description": "VoidRift Desktop — a standalone cross-platform chat application: an Electron thin client embedding @voidrift/core in the main process, with a hardened renderer reaching the SDK only through a two-primitive allow-listed contextBridge (desktop-blueprint.md).",
+  "license": "Apache-2.0",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "main": "./dist/main/main.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest --run",
+    "coverage": "vitest --run --coverage"
+  },
+  "dependencies": {
+    "@voidrift/core": "^0.1.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "10.4.2",
+    "@testing-library/jest-dom": "7.0.1",
+    "@testing-library/react": "16.3.3",
+    "@types/node": "26.6.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitest/coverage-v8": "5.0.3",
+    "electron": "44.7.0",
+    "esbuild": "0.28.2",
+    "jsdom": "30.1.2",
+    "typescript": "5.9.3",
+    "vitest": "5.0.3"
+  },
+  "voidrift": {
+    "kind": "product"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TylerJPresley/voidrift-desktop.git"
+  }
+}
