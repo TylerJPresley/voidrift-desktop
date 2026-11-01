@@ -109,7 +109,7 @@ describe("reduce (§3 — events to view state)", () => {
       initialState,
       frame(
         "PERMISSION_REQUESTED",
-        { requestId: "e1", tool: "web_fetch", args: { url: "http://127.0.0.1" }, rememberable: true, exactOnly: true, forceAskKind: "ssrf", inferredPatterns: ["127.0.0.1"] },
+        { requestId: "e1", tool: "web_extract", args: { url: "http://127.0.0.1" }, rememberable: true, exactOnly: true, forceAskKind: "ssrf", inferredPatterns: ["127.0.0.1"] },
         "host",
       ),
     );

@@ -193,14 +193,14 @@ function trapFocus(e: React.KeyboardEvent, container: HTMLElement | null): void 
 
 /**
  * The exact-only save note, adapted by force-ask family (owner D2b) — mirrors
- * the CLI's `ConfirmationDialog` wording exactly: a web_fetch/web_search SSRF
+ * the CLI's `ConfirmationDialog` wording exactly: a web_extract/web_search SSRF
  * lift saves for that exact host, a plugin install for that exact package
  * version, and anything else (a dangerous shell command) for that exact command.
  */
 function exactOnlyNote(kind: PendingApproval["forceAskKind"], tool?: string): string {
   if (kind === "ssrf") return "Saved for this exact host only.";
   if (kind === "plugin-install") return "Saved for this exact package version only.";
-  if (kind === "control-file" && (tool === "write_file" || tool === "edit_file")) {
+  if (kind === "control-file" && (tool === "write_file" || tool === "patch")) {
     return "Saved for this exact file only.";
   }
   return "Saved as this exact command only.";

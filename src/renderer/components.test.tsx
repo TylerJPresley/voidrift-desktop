@@ -179,7 +179,7 @@ describe("ApprovalDialog (§6.1 — full masked action, a11y)", () => {
     expect(screen.getByText("Saved as this exact command only.")).toBeInTheDocument();
     u1();
 
-    const host: PendingApproval = { ...approval, tool: "web_fetch", exactOnly: true, forceAskKind: "ssrf", inferredPatterns: ["example.com"] };
+    const host: PendingApproval = { ...approval, tool: "web_extract", exactOnly: true, forceAskKind: "ssrf", inferredPatterns: ["example.com"] };
     const { unmount: u2 } = render(<ApprovalDialog approval={host} onDecision={vi.fn()} />);
     expect(screen.getByText("Saved for this exact host only.")).toBeInTheDocument();
     u2();
@@ -203,7 +203,7 @@ describe("ApprovalDialog (§6.1 — full masked action, a11y)", () => {
 
     const cmd: PendingApproval = {
       ...approval,
-      tool: "execute_command",
+      tool: "terminal",
       exactOnly: true,
       forceAskKind: "control-file",
       inferredPatterns: ["echo x > .git/hooks/pre-commit"],
@@ -313,7 +313,7 @@ describe("wire path: raw event frame → reducer → rendered choices (§3→§6
       initialState,
       frame(
         "PERMISSION_REQUESTED",
-        { requestId: "r4", tool: "web_fetch", args: { url: "http://127.0.0.1" }, choices: ["approve", "reject"], rememberable: true, exactOnly: true, forceAskKind: "ssrf", inferredPatterns: ["127.0.0.1"] },
+        { requestId: "r4", tool: "web_extract", args: { url: "http://127.0.0.1" }, choices: ["approve", "reject"], rememberable: true, exactOnly: true, forceAskKind: "ssrf", inferredPatterns: ["127.0.0.1"] },
         "host",
       ),
     );
